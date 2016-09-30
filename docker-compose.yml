@@ -1,0 +1,45 @@
+version: '2'
+
+networks:
+  internal_swarm:
+    driver: overlay
+
+services:
+
+  # Gitlab
+  gitlab:
+    image: gitlab/gitlab-ce:latest
+    networks:
+      - internal_swarm
+    ports:
+      - 443:443
+      - 8081:80
+      - 22:22
+    volumes:
+      # - ./docker/gitlab/gitlab.rb/:/etc/gitlab/gitlab.rb
+      - ./docker/gitlab/config:/etc/gitlab
+      - gitlab_logs:/var/log/gitlab
+      - gitlab_data:/var/opt/gitlab
+
+  jenkins_data:
+    build: docker/jenkins_data
+
+  # Jenkins test
+  jenkins:
+    build: docker/jenkins
+    networks:
+      - internal_swarm
+    volumes_from:
+      - jenkins_data
+    ports:
+      - 8080:8080
+      - 50000:50000
+
+  jenkins_android:
+    image: symball/jenkins-android-slave
+    networks:
+      - internal_swarm
+
+volumes:
+  gitlab_data:
+  gitlab_logs:
