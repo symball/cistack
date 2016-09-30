@@ -40,14 +40,14 @@ docker-machine ls
 Because we are in effect creating a brand new environment, there is an element of
 configuration needed within Jenkins. The keys here are the same as copied to the
 Jenkins docker file
-** Credentials **
+**Credentials**
 - Go to Credentials -> Global -> Add
 - Choose Docker Host Certificate Authentication
 - Client key field, paste the contents of key.pem
 - Client Certification field, paste the contents of cert.pem
 - Server CA Cert field, paste the contents of ca.pem
 
-** Yet Another Docker Plugin (YADP) **
+**Yet Another Docker Plugin (YADP)**
 - Go to Jenkins global configuration
 - Scroll down to Cloud
 - Select YADP
@@ -55,7 +55,7 @@ Jenkins docker file
 makes sure it gets routed to whjere needed/ e.g http://192.168.99.100:2376
 - Set Host Credentials to those created in the previous step
 
-** Add a Docker template **
+**Add a Docker template**
 - Docker image name = The name of Android image after typing ```docker-compose ps```
 from the swarm manager context
 - Pull Image = Never
