@@ -1,4 +1,4 @@
-FROM symball:jenkins
+FROM symball/jenkins
 
 # Switch to the root user
 USER root
