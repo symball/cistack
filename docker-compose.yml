@@ -7,19 +7,19 @@ networks:
 services:
 
   # Gitlab
-  gitlab:
-    image: gitlab/gitlab-ce:latest
-    networks:
-      - internal_swarm
-    ports:
-      - 443:443
-      - 8081:80
-      - 22:22
-    volumes:
-      # - ./docker/gitlab/gitlab.rb/:/etc/gitlab/gitlab.rb
-      - ./docker/gitlab/config:/etc/gitlab
-      - gitlab_logs:/var/log/gitlab
-      - gitlab_data:/var/opt/gitlab
+  # gitlab:
+  #   image: gitlab/gitlab-ce:latest
+  #   networks:
+  #     - internal_swarm
+  #   ports:
+  #     - 443:443
+  #     - 8081:80
+  #     - 22:22
+  #   volumes:
+  #     # - ./docker/gitlab/gitlab.rb/:/etc/gitlab/gitlab.rb
+  #     - ./docker/gitlab/config:/etc/gitlab
+  #     - gitlab_logs:/var/log/gitlab
+  #     - gitlab_data:/var/opt/gitlab
 
   jenkins_data:
     build: docker/jenkins_data
@@ -40,6 +40,6 @@ services:
     networks:
       - internal_swarm
 
-volumes:
-  gitlab_data:
-  gitlab_logs:
+# volumes:
+#   gitlab_data:
+#   gitlab_logs:
