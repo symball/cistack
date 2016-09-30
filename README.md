@@ -30,7 +30,7 @@ This may take a while the first time as it will pull images from DockerHub
 docker-compose up
 ```
 At this point, you should be able to point your browser to Jenkins; the default
-user name and password is admin/admin. In order to discover where this might be,
+user name and password is root/testcontrol (similar to the Gitlab). In order to discover where this might be,
 open up another terminal list your docker machines
 ```
 docker-machine ls
